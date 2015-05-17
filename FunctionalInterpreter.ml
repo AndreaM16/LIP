@@ -521,10 +521,12 @@ let ris1=sem_lazy (Let(["X",(Sum(Eint 1,Eint 2))],Den("X"))) (emptyenv());;
 sem_lazy (Let(["X",Eint 2],Apply(Fun(["Y"],Prod(Den("X"),Den("Y"))),[Eint 7]))) (emptyenv());;
 let ris_lazy= (sem_lazy (Let(["X",Eint 2],Apply(Fun(["Y"],Prod(Den("X"),Den("Y"))),[Eint 1]))) (emptyenv()));;
 let lazy4=sem_lazy(Let(["X",Ifthenelse(Ebool true,Eint 1,Eint 0)],Apply(Fun(["x"],Sum(Den("X"),Eint 2)),[Eint 2]))) (emptyenv());;
+let ris_lazy2= (sem_lazy (Let(["Z",Eint 2],Apply(Fun(["Y"],Sum(Den("Z"),Den("Y"))),[Eint 2]))) (emptyenv()));;
 
 
  (*test sem_eager*)
 
 sem_eager (Apply(Fun(["x"],Den("x")),[Eint 1])) (emptyenv());;
 sem_eager ((Apply(Fun(["Y"],Prod(Den("X"),Den("Y"))),[Eint 2]))) (emptyenv());;
+sem_eager ((Apply(Fun(["Y"],Diff(Eint 3,Den("Y"))),[Eint 2]))) (emptyenv());;
 
