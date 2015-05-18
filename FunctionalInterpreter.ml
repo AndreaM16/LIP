@@ -529,4 +529,5 @@ let ris_lazy2= (sem_lazy (Let(["Z",Eint 2],Apply(Fun(["Y"],Sum(Den("Z"),Den("Y")
 sem_eager (Apply(Fun(["x"],Den("x")),[Eint 1])) (emptyenv());;
 sem_eager ((Apply(Fun(["Y"],Prod(Den("X"),Den("Y"))),[Eint 2]))) (emptyenv());;
 sem_eager ((Apply(Fun(["Y"],Diff(Eint 3,Den("Y"))),[Eint 2]))) (emptyenv());;
+sem_eager ((Apply(Fun(["Y"],Sum(Den("X"),EInt 3)),[Eint 2]))) (emptyenv());;
 
